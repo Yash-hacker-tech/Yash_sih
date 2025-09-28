@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-slate-200 dark:border-cosmic-space-700;
+  }
+  
+  body {
+    @apply bg-cosmic-light dark:bg-cosmic-dark text-slate-900 dark:text-slate-100 font-sans;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Cosmic theme transition effects */
+  .cosmic-theme-transition {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Cosmic particle animation */
+  @keyframes cosmicParticleFloat {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50px) scale(1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-100px) scale(0);
+      opacity: 0;
+    }
+  }
+  
+  /* Custom scrollbar with cosmic theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-cosmic-dark-100 dark:bg-cosmic-dark-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cosmic-space-300 dark:bg-cosmic-space-600 rounded-full;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cosmic-space-400 dark:bg-cosmic-space-500;
+    background: linear-gradient(135deg, #8b5cf6, #d946ef);
+  }
+  
+  /* Theme transition */
+  .theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/10 dark:bg-slate-900/10 backdrop-blur-md border border-white/20 dark:border-slate-700/20;
+  }
+  
+  /* CodeHelp inspired gradients */
+  .codehelp-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+  }
+  
+  .codehelp-gradient-text {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  }
+  
+  .card-gradient-light {
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  }
+  
+  .card-gradient-dark {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  }
+
+  /* Cosmic theme gradients */
+  .cosmic-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #d946ef 50%, #ec4899 75%, #f59e0b 100%);
+  }
+  
+  .cosmic-gradient-text {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 25%, #d946ef 50%, #ec4899 75%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .nebula-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #d946ef 50%, #ec4899 100%);
+  }
+  
+  .stellar-gradient {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+  }
+  
+  .aurora-gradient {
+    background: linear-gradient(135deg, #22c55e 0%, #06b6d4 50%, #8b5cf6 100%);
+  }
+  
+  .space-gradient {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #312e81 50%, #4a044e 75%, #020617 100%);
+  }
+  
+  .galaxy-gradient {
+    background: radial-gradient(ellipse at center, #6366f1 0%, #8b5cf6 30%, #d946ef 60%, #0f172a 100%);
+  }
+  
+  .constellation-gradient {
+    background: conic-gradient(from 0deg at 50% 50%, #6366f1, #8b5cf6, #d946ef, #ec4899, #f59e0b, #6366f1);
+  }
+}
+
+@layer components {
+  /* Modern button styles with cosmic theme */
+  .btn-primary {
+    @apply relative overflow-hidden bg-cosmic-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-cosmic-glow focus:outline-none focus:ring-2 focus:ring-cosmic-space-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  .btn-secondary {
+    @apply relative overflow-hidden bg-white/90 dark:bg-cosmic-dark-800/90 hover:bg-white dark:hover:bg-cosmic-dark-800 text-slate-700 dark:text-slate-200 font-semibold py-3 px-6 rounded-xl border border-slate-200 dark:border-cosmic-space-700 transition-all duration-300 transform hover:scale-105 hover:shadow-cosmic-glow focus:outline-none focus:ring-2 focus:ring-cosmic-space-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800 backdrop-blur-sm;
+  }
+  
+  .btn-ghost {
+    @apply relative overflow-hidden bg-transparent hover:bg-white/10 dark:hover:bg-cosmic-dark-800/50 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 font-medium py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cosmic-space-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  .btn-outline {
+    @apply relative overflow-hidden bg-transparent border-2 border-cosmic-space-500 text-cosmic-space-500 hover:bg-cosmic-space-500 hover:text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-cosmic-glow focus:outline-none;
+  }
+
+  /* Cosmic theme buttons */
+  .btn-cosmic {
+    @apply relative overflow-hidden bg-cosmic-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-110 hover:shadow-cosmic-neon focus:outline-none focus:ring-2 focus:ring-cosmic-nebula-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  .btn-nebula {
+    @apply relative overflow-hidden bg-nebula-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-110 hover:shadow-nebula-glow focus:outline-none focus:ring-2 focus:ring-cosmic-nebula-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  .btn-stellar {
+    @apply relative overflow-hidden bg-stellar-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-110 hover:shadow-stellar-glow focus:outline-none focus:ring-2 focus:ring-cosmic-stellar-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  .btn-aurora {
+    @apply relative overflow-hidden bg-aurora-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-110 hover:shadow-aurora-glow focus:outline-none focus:ring-2 focus:ring-cosmic-aurora-500 focus:ring-offset-2 dark:focus:ring-offset-cosmic-dark-800;
+  }
+  
+  /* Card styles with cosmic theme */
+  .card {
+    @apply relative overflow-hidden bg-white/80 dark:bg-cosmic-dark-800/80 backdrop-blur-md rounded-2xl shadow-constellation-shadow border border-white/20 dark:border-cosmic-space-700/20 p-6 m-2 transition-all duration-500 hover:shadow-galaxy-shadow hover:scale-[1.02] hover:border-cosmic-space-200 dark:hover:border-cosmic-space-800;
+  }
+  
+  .card-glass {
+    @apply relative overflow-hidden bg-white/10 dark:bg-cosmic-dark-900/10 backdrop-blur-md rounded-2xl border border-white/20 dark:border-cosmic-space-700/20 p-6 m-2 transition-all duration-500 hover:bg-white/20 dark:hover:bg-cosmic-dark-800/20;
+  }
+  
+  .card-gradient {
+    @apply relative overflow-hidden rounded-2xl shadow-galaxy-shadow border border-white/20 dark:border-cosmic-space-700/20 p-6 m-2 transition-all duration-500 hover:shadow-galaxy-shadow hover:scale-[1.02];
+    background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  }
+  
+  .dark .card-gradient {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%);
+  }
+  
+  .hero-card {
+    @apply relative overflow-hidden rounded-3xl shadow-galaxy-shadow border border-white/20 dark:border-cosmic-space-700/20 p-8 transition-all duration-500 hover:shadow-galaxy-shadow hover:scale-[1.02];
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  }
+
+  /* Cosmic theme cards */
+  .cosmic-card {
+    @apply relative overflow-hidden bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl shadow-cosmic-glow border border-white/20 dark:border-cosmic-space-700/20 p-6 m-2 transition-all duration-500 hover:shadow-cosmic-neon hover:scale-[1.05] hover:border-cosmic-nebula-500/50;
+  }
+  
+  .nebula-card {
+    @apply relative overflow-hidden bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl shadow-nebula-glow border border-white/20 dark:border-cosmic-nebula-700/20 p-6 m-2 transition-all duration-500 hover:shadow-nebula-glow hover:scale-[1.05] hover:border-cosmic-nebula-500/50;
+  }
+  
+  .stellar-card {
+    @apply relative overflow-hidden bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl shadow-stellar-glow border border-white/20 dark:border-cosmic-stellar-700/20 p-6 m-2 transition-all duration-500 hover:shadow-stellar-glow hover:scale-[1.05] hover:border-cosmic-stellar-500/50;
+  }
+  
+  .aurora-card {
+    @apply relative overflow-hidden bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl shadow-aurora-glow border border-white/20 dark:border-cosmic-aurora-700/20 p-6 m-2 transition-all duration-500 hover:shadow-aurora-glow hover:scale-[1.05] hover:border-cosmic-aurora-500/50;
+  }
+  
+  .galaxy-card {
+    @apply relative overflow-hidden rounded-3xl shadow-galaxy-shadow border border-white/20 dark:border-cosmic-space-700/20 p-8 m-2 transition-all duration-500 hover:shadow-galaxy-shadow hover:scale-[1.02];
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #312e81 50%, #4a044e 75%, #020617 100%);
+  }
+  
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 backdrop-blur-sm placeholder-slate-400 dark:placeholder-slate-500;
+  }
+  
+  .input-field:focus {
+    @apply shadow-glow;
+  }
+  
+  /* Table styles */
+  .table-container {
+    @apply overflow-x-auto shadow-codehelp-lg rounded-2xl border border-white/20 dark:border-slate-700/20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md;
+  }
+  
+  .table {
+    @apply min-w-full divide-y divide-slate-200 dark:divide-slate-700;
+  }
+  
+  .table-header {
+    @apply bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700;
+  }
+  
+  .table-header-cell {
+    @apply px-6 py-4 text-left text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider;
+  }
+  
+  .table-body {
+    @apply bg-white/50 dark:bg-slate-800/50 divide-y divide-slate-200 dark:divide-slate-700;
+  }
+  
+  .table-row {
+    @apply hover:bg-white/80 dark:hover:bg-slate-700/50 transition-all duration-300 hover:shadow-sm;
+  }
+  
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-slate-900 dark:text-slate-100;
+  }
+  
+  /* Navigation styles */
+  .nav-link {
+    @apply relative flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-300 transform hover:scale-105 group;
+  }
+  
+  .nav-link-active {
+    @apply bg-codehelp-gradient text-white shadow-glow;
+  }
+  
+  .nav-link-inactive {
+    @apply text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-white/10 dark:hover:bg-slate-800/50;
+  }
+  
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-4 border-slate-200 dark:border-slate-700 border-t-primary-500;
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 animate-shimmer;
+  }
+  
+  /* Floating animation */
+  .float {
+    @apply animate-float;
+  }
+  
+  /* Glow animation */
+  .glow {
+    @apply animate-glow;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-500 via-accent-500 to-primary-600 bg-clip-text text-transparent;
+  }
+  
+  .gradient-text-codehelp {
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 transform hover:scale-105 hover:shadow-codehelp-lg;
+    @apply p-2 m-1; /* Add padding and margin to prevent overflow */
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+  
+  .hover-codehelp {
+    @apply transition-all duration-300 hover:text-codehelp-blue hover:shadow-glow;
+  }
+  
+  /* Mouse shadow effect */
+  .mouse-shadow {
+    @apply transition-all duration-300;
+    @apply p-2 m-1; /* Add padding and margin to prevent overflow */
+  }
+  
+  .mouse-shadow:hover {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);
+  }
+  
+  /* Scroll animations */
+  .scroll-fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-fade-in.visible {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .scroll-slide-left {
+    @apply opacity-0 -translate-x-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-slide-left.visible {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .scroll-slide-right {
+    @apply opacity-0 translate-x-8 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-slide-right.visible {
+    @apply opacity-100 translate-x-0;
+  }
+  
+  .scroll-scale-in {
+    @apply opacity-0 scale-95 transition-all duration-700 ease-out;
+  }
+  
+  .scroll-scale-in.visible {
+    @apply opacity-100 scale-100;
+  }
+  
+  /* CodeHelp specific styles */
+  .codehelp-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  }
+  
+  .codehelp-feature-card {
+    @apply bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl p-6 border border-white/20 dark:border-cosmic-space-700/20 transition-all duration-500 hover:scale-105 hover:shadow-galaxy-shadow;
+  }
+  
+  .codehelp-stats-card {
+    @apply bg-gradient-to-br from-white to-slate-50 dark:from-cosmic-dark-800 dark:to-cosmic-dark-900 rounded-2xl p-6 border border-white/20 dark:border-cosmic-space-700/20 transition-all duration-500 hover:scale-105 hover:shadow-galaxy-shadow;
+  }
+  
+  .codehelp-button {
+    @apply bg-cosmic-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-105 hover:shadow-cosmic-glow focus:outline-none focus:ring-2 focus:ring-cosmic-space-500 focus:ring-offset-2;
+  }
+
+  /* Cosmic theme effects */
+  .cosmic-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #312e81 50%, #4a044e 75%, #020617 100%);
+  }
+  
+  .cosmic-feature-card {
+    @apply bg-white/90 dark:bg-cosmic-dark-800/90 backdrop-blur-md rounded-2xl p-6 m-2 border border-white/20 dark:border-cosmic-space-700/20 transition-all duration-500 hover:scale-105 hover:shadow-cosmic-glow;
+  }
+  
+  .cosmic-stats-card {
+    @apply bg-gradient-to-br from-white to-slate-50 dark:from-cosmic-dark-800 dark:to-cosmic-dark-900 rounded-2xl p-6 m-2 border border-white/20 dark:border-cosmic-space-700/20 transition-all duration-500 hover:scale-105 hover:shadow-cosmic-glow;
+  }
+  
+  .cosmic-button {
+    @apply bg-cosmic-gradient text-white font-semibold py-3 px-6 rounded-xl transition-all duration-500 transform hover:scale-110 hover:shadow-cosmic-neon focus:outline-none focus:ring-2 focus:ring-cosmic-nebula-500 focus:ring-offset-2;
+  }
+
+  /* Toggle effects */
+  .toggle-effect {
+    @apply transition-all duration-500 ease-in-out;
+    @apply p-2 m-1; /* Add padding and margin to prevent overflow */
+  }
+  
+  .toggle-effect:hover {
+    @apply transform scale-105 shadow-cosmic-glow;
+  }
+  
+  .toggle-effect:active {
+    @apply transform scale-95;
+  }
+
+  /* Cosmic animations */
+  .cosmic-float {
+    animation: cosmicFloat 8s ease-in-out infinite;
+  }
+  
+  .nebula-pulse {
+    animation: nebulaPulse 4s ease-in-out infinite;
+  }
+  
+  .stellar-glow {
+    animation: stellarGlow 3s ease-in-out infinite alternate;
+  }
+  
+  .aurora-wave {
+    animation: auroraWave 6s ease-in-out infinite;
+  }
+  
+  .cosmic-spin {
+    animation: cosmicSpin 20s linear infinite;
+  }
+  
+  .particle-float {
+    animation: particleFloat 12s ease-in-out infinite;
+  }
+  
+  .galaxy-rotate {
+    animation: galaxyRotate 30s linear infinite;
+  }
+  
+  .constellation-twinkle {
+    animation: constellationTwinkle 2s ease-in-out infinite;
+  }
+  
+  /* FrontPage specific styles */
+  .frontpage-nav-button {
+    @apply flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm border;
+  }
+  
+  .frontpage-nav-button:hover {
+    @apply shadow-lg;
+  }
+  
+  .frontpage-nav-button.login {
+    @apply bg-gradient-to-r from-purple-700/20 to-pink-600/20 border-purple-500/30 hover:from-purple-700/40 hover:to-pink-600/40;
+  }
+  
+  .frontpage-nav-button.register {
+    @apply bg-gradient-to-r from-cyan-700/20 to-purple-700/20 border-cyan-500/30 hover:from-cyan-700/40 hover:to-purple-700/40;
+  }
+  
+  /* Smooth scrolling for navigation links */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+  
+  /* Neon glow effect for buttons */
+  .neon-glow {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  }
+  
+  .hover-neon:hover {
+    @apply neon-glow;
+  }
+}
